@@ -7,7 +7,6 @@ import 'package:fruit_hub/core/services/get_it_service.dart';
 import 'package:fruit_hub/core/services/shared_preferences_singleton.dart';
 import 'package:fruit_hub/core/utils/app_colors.dart';
 import 'package:fruit_hub/features/splash/presentation/views/splash_view.dart';
-
 import 'core/services/custom_bloc_observer.dart';
 import 'firebase_options.dart';
 import 'generated/l10n.dart';

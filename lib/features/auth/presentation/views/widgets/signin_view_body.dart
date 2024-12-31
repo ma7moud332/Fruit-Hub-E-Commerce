@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/constants.dart';
@@ -96,23 +97,33 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               SocialLoginButton(
                 image: Assets.imagesGoogleIcon,
                 title: 'تسجيل بواسطة جوجل',
-                onPressed: () {},
+                onPressed: () {
+                  context.read<SigninCubit>().signInWithGoogle();
+                },
               ),
               SizedBox(
                 height: 16,
               ),
-              SocialLoginButton(
-                image: Assets.imagesApplIcon,
-                title: 'تسجيل بواسطة أبل',
-                onPressed: () {},
-              ),
-              SizedBox(
-                height: 16,
-              ),
+              Platform.isIOS
+                  ? Column(
+                      children: [
+                        SocialLoginButton(
+                          onPressed: () {},
+                          image: Assets.imagesApplIcon,
+                          title: 'تسجيل بواسطة أبل',
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                      ],
+                    )
+                  : const SizedBox(),
               SocialLoginButton(
                 image: Assets.imagesFacebookIcon,
                 title: 'تسجيل بواسطة فيسبوك',
-                onPressed: () {},
+                onPressed: () {
+                  context.read<SigninCubit>().signInWithFacebook();
+                },
               ),
             ],
           ),
