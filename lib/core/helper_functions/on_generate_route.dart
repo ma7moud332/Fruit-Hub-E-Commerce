@@ -4,6 +4,7 @@ import 'package:fruit_hub/features/on_boarding/presentation/views/on_boarding_vi
 import 'package:fruit_hub/features/splash/presentation/views/splash_view.dart';
 
 import '../../features/auth/presentation/views/signin_view.dart';
+import '../../features/home/presentation/views/home_view.dart';
 
 Route<dynamic> onGeneratewRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -18,6 +19,9 @@ Route<dynamic> onGeneratewRoute(RouteSettings settings) {
 
     case SignupView.routeName:
       return MaterialPageRoute(builder: (_) => const SignupView());
+
+    case HomeView.routeName:
+      return MaterialPageRoute(builder: (_) => const HomeView());
 
     default:
       return MaterialPageRoute(builder: (_) => Container());
