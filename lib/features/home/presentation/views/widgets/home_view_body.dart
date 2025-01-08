@@ -3,6 +3,8 @@ import 'package:fruit_hub/constants.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/featured_list.dart';
 import '../../../../../core/widgets/serach_text_field.dart';
+import 'best_selling_grid_view.dart';
+import 'best_selling_header.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -22,9 +24,13 @@ class HomeViewBody extends StatelessWidget {
                 SerachTextField(),
                 SizedBox(height: 12),
                 FeaturedList(),
+                SizedBox(height: 12),
+                BestSellingHeader(),
+                SizedBox(height: 8),
               ],
             ),
           ),
+          BestSellingGridView(),
         ],
       ),
     );
