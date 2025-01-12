@@ -4,6 +4,7 @@ import 'package:fruit_hub/features/on_boarding/presentation/views/on_boarding_vi
 import 'package:fruit_hub/features/splash/presentation/views/splash_view.dart';
 
 import '../../features/auth/presentation/views/signin_view.dart';
+import '../../features/best_selling_fruits/presentation/views/best_selling_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
 
 Route<dynamic> onGeneratewRoute(RouteSettings settings) {
@@ -22,6 +23,9 @@ Route<dynamic> onGeneratewRoute(RouteSettings settings) {
 
     case HomeView.routeName:
       return MaterialPageRoute(builder: (_) => const HomeView());
+
+    case BestSellingView.routeName:
+      return MaterialPageRoute(builder: (_) => const BestSellingView());
 
     default:
       return MaterialPageRoute(builder: (_) => Container());
