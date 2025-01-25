@@ -19,7 +19,7 @@ class CustomHomeAppBar extends StatelessWidget {
         ),
       ),
       subtitle: Text(
-        'أحمد مصطفي',
+        'محمود رضا',
         textAlign: TextAlign.right,
         style: TextStyles.bold16,
       ),

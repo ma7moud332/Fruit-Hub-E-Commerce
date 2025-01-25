@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/core/utils/app_colors.dart';
 import 'package:fruit_hub/core/utils/app_images.dart';
 import 'package:fruit_hub/core/utils/app_text_styles.dart';
 
-class FruitItem extends StatelessWidget {
-  const FruitItem({super.key});
+import 'custom_network_image.dart';
 
+class FruitItem extends StatelessWidget {
+  const FruitItem({super.key, required this.productEntity});
+
+  final ProductEntity productEntity;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,13 +31,20 @@ class FruitItem extends StatelessWidget {
               child: Column(
             children: [
               SizedBox(height: 16),
-              Image.asset(
-                Assets.imagesWatermelonTest,
-              ),
+              productEntity.imageUrl != null
+                  ? Flexible(
+                      child:
+                          CustomNetworkImage(imageUrl: productEntity.imageUrl!),
+                    )
+                  : Container(
+                      color: Colors.grey,
+                      height: 100,
+                      width: 100,
+                    ),
               SizedBox(height: 12),
               ListTile(
                 title: Text(
-                  'بطيخ',
+                  productEntity.name,
                   textAlign: TextAlign.right,
                   style: TextStyles.bold13,
                 ),
@@ -41,7 +52,7 @@ class FruitItem extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: '20جنية ',
+                        text: '${productEntity.price}جنية ',
                         style: TextStyles.bold13.copyWith(
                           color: AppColors.secondaryColor,
                         ),
@@ -53,7 +64,7 @@ class FruitItem extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: 'الكيلو',
+                        text: 'كيلو',
                         style: TextStyles.semiBold13.copyWith(
                           color: AppColors.lightSecondaryColor,
                         ),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/widgets/custom_buttom_navigation_bar.dart';
 
-import 'widgets/home_view_body.dart';
+import 'widgets/home_view.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class MainView extends StatelessWidget {
+  const MainView({super.key});
 
   static const String routeName = 'home_view';
   @override
@@ -12,7 +12,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: CustomButtomNavigationBar(),
       body: SafeArea(
-        child: HomeViewBody(),
+        child: HomeView(),
       ),
     );
   }
