@@ -8,7 +8,7 @@ UserEntity getUser() {
   var jsonString = Prefs.getString(kUserData);
 
   var userEntity =
-      UserModel.fromJson(jsonDecode(jsonString)! as Map<String, dynamic>);
+      UserModel.fromJson(jsonDecode(jsonString));
 
   return userEntity;
 }

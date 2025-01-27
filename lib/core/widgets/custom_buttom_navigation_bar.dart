@@ -3,7 +3,8 @@ import 'package:fruit_hub/features/home/domain/entites/bottom_navigation_bar_ent
 import '../../features/home/presentation/views/widgets/navigation_bar_item.dart';
 
 class CustomButtomNavigationBar extends StatefulWidget {
-  const CustomButtomNavigationBar({super.key});
+  const CustomButtomNavigationBar({super.key, required this.onItemTapped});
+  final ValueChanged<int> onItemTapped;
 
   @override
   State<CustomButtomNavigationBar> createState() =>
@@ -46,6 +47,7 @@ class _CustomButtomNavigationBarState extends State<CustomButtomNavigationBar> {
                 onTap: () {
                   setState(() {
                     selectedIndex = index;
+                    widget.onItemTapped(index);
                   });
                 },
                 child: NavigationBarItem(

@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/cubits/products_cubit/products_cubit.dart';
 import '../../../../../core/widgets/serach_text_field.dart';
 import 'products_grid_view_bloc_builder.dart';
-import 'best_selling_header.dart';
-import 'custom_home_app_bar.dart';
-import 'featured_list.dart';
+import 'products_view_header.dart';
 
-class HomeViewBody extends StatefulWidget {
-  const HomeViewBody({
-    super.key,
-  });
+class ProductsViewBody extends StatefulWidget {
+  const ProductsViewBody({super.key});
 
   @override
-  State<HomeViewBody> createState() => _HomeViewBodyState();
+  State<ProductsViewBody> createState() => _ProductsViewBodyState();
 }
 
-class _HomeViewBodyState extends State<HomeViewBody> {
+class _ProductsViewBodyState extends State<ProductsViewBody> {
   @override
   void initState() {
-    context.read<ProductsCubit>().getBestSellingProducts();
+    context.read<ProductsCubit>().getProducts();
     super.initState();
   }
 
@@ -34,13 +31,13 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             child: Column(
               children: [
                 SizedBox(height: kTopPadding),
-                CustomHomeAppBar(),
+                buildAppBar(context, title: 'المنتجات', showBackButton: false),
                 SizedBox(height: 16),
                 SerachTextField(),
                 SizedBox(height: 12),
-                FeaturedList(),
-                SizedBox(height: 12),
-                BestSellingHeader(),
+                ProductsViewHeader(
+                  peoductsLength: context.read<ProductsCubit>().productsLength,
+                ),
                 SizedBox(height: 8),
               ],
             ),
