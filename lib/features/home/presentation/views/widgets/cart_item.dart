@@ -4,11 +4,13 @@ import 'package:fruit_hub/core/utils/app_colors.dart';
 import 'package:fruit_hub/core/utils/app_images.dart';
 import 'package:fruit_hub/core/utils/app_text_styles.dart';
 import 'package:fruit_hub/core/widgets/custom_network_image.dart';
+import 'package:fruit_hub/features/home/domain/entites/cart_item_entity.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/cart_item_action_buttons.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key});
+  const CartItem({super.key, required this.cartItemEntity});
 
+  final CartItemEntity cartItemEntity;
   @override
   Widget build(BuildContext context) {
     return IntrinsicHeight(
@@ -20,7 +22,7 @@ class CartItem extends StatelessWidget {
             decoration: BoxDecoration(color: Color(0xFFF3F5F7)),
             child: CustomNetworkImage(
                 imageUrl:
-                    'https://th.bing.com/th/id/OIG1.wQ7nqzXG6LLji1s3MrOP'),
+                    cartItemEntity.productEntity.imageUrl!),
           ),
           SizedBox(width: 17),
           Expanded(
@@ -31,7 +33,7 @@ class CartItem extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'بطيخ',
+                      cartItemEntity.productEntity.name,
                       style: TextStyles.bold13,
                     ),
                     Spacer(),
@@ -44,7 +46,7 @@ class CartItem extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  '3 كم',
+                  '${cartItemEntity.calculateTotalWeight()} كم',
                   textAlign: TextAlign.right,
                   style: TextStyles.regular13.copyWith(
                     color: AppColors.secondaryColor,
@@ -55,7 +57,7 @@ class CartItem extends StatelessWidget {
                     CartItemActionButtons(),
                     Spacer(),
                     Text(
-                      '20 جنيه',
+                      '${cartItemEntity.calculateTotalPrice()} جنيه',
                       style: TextStyles.bold16.copyWith(
                         color: AppColors.secondaryColor,
                       ),

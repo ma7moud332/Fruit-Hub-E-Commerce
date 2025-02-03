@@ -33,7 +33,9 @@ class CartViewBody extends StatelessWidget {
             SliverToBoxAdapter(
               child: CustomDivider(),
             ),
-            CartItemList(),
+            CartItemList(
+              cartItems: [],
+            ),
             SliverToBoxAdapter(
               child: CustomDivider(),
             ),
@@ -43,7 +45,10 @@ class CartViewBody extends StatelessWidget {
           left: 16,
           right: 16,
           bottom: MediaQuery.sizeOf(context).height * 0.05,
-          child: CustomButton(onPressed: () {}, text: 'الدفع  120جنيه'),
+          child: CustomButton(
+            onPressed: () {},
+            text: 'الدفع  120جنيه',
+          ),
         )
       ],
     );
