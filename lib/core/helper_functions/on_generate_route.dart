@@ -5,6 +5,7 @@ import 'package:fruit_hub/features/splash/presentation/views/splash_view.dart';
 
 import '../../features/auth/presentation/views/signin_view.dart';
 import '../../features/best_selling_fruits/presentation/views/best_selling_view.dart';
+import '../../features/checkout/presentation/views/checkout_view.dart';
 import '../../features/home/presentation/views/main_view.dart';
 
 Route<dynamic> onGeneratewRoute(RouteSettings settings) {
@@ -14,6 +15,9 @@ Route<dynamic> onGeneratewRoute(RouteSettings settings) {
 
     case OnBoardingView.routeName:
       return MaterialPageRoute(builder: (_) => const OnBoardingView());
+
+    case CheckoutView.routeName:
+      return MaterialPageRoute(builder: (_) => const CheckoutView());
 
     case SigninView.routeName:
       return MaterialPageRoute(builder: (_) => const SigninView());

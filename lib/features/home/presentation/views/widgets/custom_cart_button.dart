@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/features/checkout/presentation/views/checkout_view.dart';
 
 import '../../../../../core/widgets/custom_button.dart';
 import '../../cubits/cart_cubit/cart_cubit.dart';
@@ -16,7 +17,9 @@ class CustomCartButton extends StatelessWidget {
     return BlocBuilder<CartItemCubit, CartItemState>(
       builder: (context, state) {
         return CustomButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, CheckoutView.routeName);
+          },
           text:
               'الدفع  ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()} جنيه',
         );
